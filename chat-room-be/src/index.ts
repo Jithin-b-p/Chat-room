@@ -22,4 +22,8 @@ wss.on("connection", (socket) => {
       ws.send(message.toString());
     });
   });
+
+  socket.on("disconnnect", () => {
+    allSockets = allSockets.filter((ws) => ws != socket);
+  });
 });
